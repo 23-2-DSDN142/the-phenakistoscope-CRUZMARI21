@@ -21,11 +21,11 @@ function setup_layers(pScope){
   layer1.set_boundary( 0, 1000 );
 
 
-
 }
 
 function bkgr (x, y, animation, pScope){
-  pScope.fill_background('yellow');
+  pScope.fill_background('pink');
+
 }
 
 function bear(x, y, animation, pScope){
@@ -56,9 +56,6 @@ function bear(x, y, animation, pScope){
   stroke('black')
   ellipse (101,135,40,35) //mouth
 
-  
- 
-  
   stroke('grey')
   stroke('grey')
   fill('pink')
@@ -74,6 +71,7 @@ function bear(x, y, animation, pScope){
  // pScope.draw_image("bear",x,y);
 pop()
 }
+
 
   // this is how you set up a background for a specific layer
   let angleOffset = (360 / SLICE_COUNT) / 2
