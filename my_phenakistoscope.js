@@ -77,7 +77,7 @@ pop()
 
 function bearPng(x, y, animation, pScope){
 scale(0.2)
-  pScope.draw_image("bear",x,y-2500 + animation.wave(2)*200);
+  pScope.draw_image("bear",x-3600,y-2500 + animation.wave(2)*200);
 
 }
 
