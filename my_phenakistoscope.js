@@ -6,6 +6,7 @@ function setup_pScope(pScope){
   pScope.set_direction(CCW);
   pScope.set_slice_count(12);
   pScope.load_image("bear", "png");
+  
 }
 
 function setup_layers(pScope){
@@ -25,7 +26,7 @@ function setup_layers(pScope){
 }
 
 function bkgr (x, y, animation, pScope){
-  pScope.fill_background('#ACF9FA'); //BLUE??????
+  pScope.fill_background('#C1F6F7'); //BLUE??????
 
 }
 
