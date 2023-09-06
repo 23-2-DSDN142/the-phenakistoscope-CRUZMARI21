@@ -1,11 +1,12 @@
 function setup_pScope(pScope){
-  pScope.output_mode(ANIMATED_DISK);
+  pScope.output_mode(OUTPUT_GIF(1000));
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.draw_slits(false);
   pScope.set_direction(CCW);
   pScope.set_slice_count(12);
-  pScope.load_image("bear", "png");
+  pScope.load_image("bear no background", "png");
+  pScope.load_image("background drawing", "png");
   
 }
 
@@ -16,12 +17,15 @@ function setup_layers(pScope){
   var layerback = new PLayer(bkgr);
   layerback.mode(RING);
   layerback.set_boundary( 0, 1000 );
-
+  
  //var layer1 = new PLayer(codeBear);
-  var layer1 = new PLayer(bearPng);
-  layer1.mode( RING);
+  var layer1 = new PLayer(codeBear);
+  layer1.mode(RING);
   layer1.set_boundary( 0, 1000 );
 
+  var insideBackground = new PLayer(detail);
+  insideBackground.mode(RING)
+  insideBackground.set_boundary(0,400)
 
 }
 
@@ -30,10 +34,17 @@ function bkgr (x, y, animation, pScope){
 
 }
 
+function detail(x, y, animation, pScope){
+
+  pScope.draw_image("background drawing",x,y);
+
+
+}
+
+
 function codeBear(x, y, animation, pScope){
- 
   push()
-  //scare(0.1);
+  translate(0, -600+ animation.wave(2)*100);
   fill('grey')
   stroke('black')
   ellipse(65,60,70,70)//left ear
@@ -78,9 +89,10 @@ pop()
 
 function bearPng(x, y, animation, pScope){
 scale(0.2)
-  pScope.draw_image("bear",x-3600,y-2500 + animation.wave(2)*200);
-
+  pScope.draw_image("bear no background",x-3600,y-2500 + animation.wave(2)*200);
+  
 }
+
 
   // // this is how you set up a background for a specific layer
   // let angleOffset = (360 / SLICE_COUNT) / 2
