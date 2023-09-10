@@ -1,5 +1,6 @@
 function setup_pScope(pScope){
-  pScope.output_mode(OUTPUT_GIF(1000));
+ // pScope.output_mode(STATIC_DISK);
+ pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.draw_slits(false);
@@ -14,31 +15,37 @@ function setup_layers(pScope){
   //let us draw the whole circle background
   new PLayer(null, 220);
 
+  var insideBackground = new PLayer(detail);
+  insideBackground.mode(RING)
+  insideBackground.set_boundary(0,400)
+
   var layerback = new PLayer(bkgr);
   layerback.mode(RING);
-  layerback.set_boundary( 0, 1000 );
+  layerback.set_boundary( 0, 100 );
   
  //var layer1 = new PLayer(codeBear);
   var layer1 = new PLayer(codeBear);
   layer1.mode(RING);
   layer1.set_boundary( 0, 1000 );
 
-  var insideBackground = new PLayer(detail);
-  insideBackground.mode(RING)
-  insideBackground.set_boundary(0,400)
 
+  function bkgr (x, y, animation, pScope){
+    //pScope.fill_background('#93EED5'); //BLUE??????
+  
+  }
 }
 
-function bkgr (x, y, animation, pScope){
-  pScope.fill_background('#C1F6F7'); //BLUE??????
-
-}
 
 function detail(x, y, animation, pScope){
+  if(animation.frame <= 0.1){
+push();
+scale(1.005);
 
-  pScope.draw_image("background drawing",x,y);
-
-
+//rotate(animation.frame)
+translate(31.5,405)
+  pScope.draw_image("background drawing",0,0);
+pop();
+  }
 }
 
 
@@ -89,7 +96,7 @@ pop()
 
 function bearPng(x, y, animation, pScope){
 scale(0.2)
-  pScope.draw_image("bear no background",x-3600,y-2500 + animation.wave(2)*200);
+  //pScope.draw_image("bear no background",x-360,y-2500 + animation.wave(2)*200);
   
 }
 
