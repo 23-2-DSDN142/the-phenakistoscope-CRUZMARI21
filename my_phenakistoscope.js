@@ -11,7 +11,6 @@ function setup_pScope(pScope){
   pScope.load_image("Leaves on Bottom", "png");
   pScope.load_image("Middle Leaf", "png");
   pScope.load_image("Leaves on the Right", "png");
-
 }
 
 function setup_layers(pScope){
@@ -22,15 +21,18 @@ function setup_layers(pScope){
   insideBackground.mode(RING)
   insideBackground.set_boundary(0,1000)
 
-  var insideBackground = new PLayer(centerLeaf);
+  var insideBackground = new PLayer(LeavesontheRight);
   insideBackground.mode(RING)
   insideBackground.set_boundary(0,1000)
 
   var layerback = new PLayer(bkgr);
   layerback.mode(RING);
   layerback.set_boundary( 0, 100 );
-  
- //var layer1 = new PLayer(codeBear);
+
+  var insideBackground = new PLayer(centerLeaf);
+  insideBackground.mode(RING)
+  insideBackground.set_boundary(0,1000)
+
   var layer1 = new PLayer(codeBear);
   layer1.mode(RING);
   layer1.set_boundary( 0, 1000 );
@@ -42,12 +44,16 @@ function setup_layers(pScope){
   var layer1 = new PLayer(codeBear3);
   layer1.mode(RING);
   layer1.set_boundary( 0, 1000 );
+ 
+
+
+
+}
+function bkgr (x, y, animation, pScope){
+  pScope.fill_background('#93EED5');
 }
 
-function bkgr (x, y, animation, pScope){
-  pScope.fill_background('#93EED5'); //BLUE??????
   
-  }
 
 function centerLeaf(x, y, animation, pScope){
   push();
@@ -68,23 +74,38 @@ pScope.draw_image("Leaves on top",0,-1000 - animation.wave(1)*200 );
   pop();
 }
 
+function LeavesontheRight(x, y, animation, pScope){
+  push();
+  translate(0, -5);
+  scale(10)
+  pScope.draw_image("Leaves on the Right",0,-3000 - animation.wave(10)*200 );
+ 
+pScope.draw_image("Leaves on the Right",0,-1000 - animation.wave(1)*200 );
+  pop();
+}
+
+
+
 
 function detail(x, y, animation, pScope){
   if(animation.frame <= 0.1){
 push();
 scale(1.005);
 
-//rotate(animation.frame)
+rotate(animation.frame)
 translate(31.5,405)
   pScope.draw_image("Leaves on top",0,0);
 pop();
   }
+
+
+  
 }
 
 
 function codeBear(x, y, animation, pScope){
   push()
-  translate(-100, -600+ animation.wave(2)*100);
+  translate(-100, -1000+ animation.wave(2)*100);
   fill('grey')
   stroke('black')
   ellipse(65,60,70,70)//left ear
@@ -218,15 +239,11 @@ pop();
 }
 
 
-
-
-
-
-
 function bearPng(x, y, animation, pScope){
 // scale(0.2)
   //pScope.draw_image("bear no background",x-360,y-2500 + animation.wave(2)*200);
   
+
 }
 
 
