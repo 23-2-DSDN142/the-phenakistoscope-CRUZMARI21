@@ -39,12 +39,15 @@ function setup_layers(pScope){
   layer1.mode(RING);
   layer1.set_boundary( 0, 1000 );
 
+  var layer1 = new PLayer(codeBear3);
+  layer1.mode(RING);
+  layer1.set_boundary( 0, 1000 );
+}
 
-  function bkgr (x, y, animation, pScope){
+function bkgr (x, y, animation, pScope){
   pScope.fill_background('#93EED5'); //BLUE??????
   
   }
-}
 
 function centerLeaf(x, y, animation, pScope){
   push();
@@ -61,7 +64,7 @@ function LeavesonTop(x, y, animation, pScope){
   scale(0.8)
   pScope.draw_image("Leaves on top",0,-1300 - animation.wave(2)*300 );
  
-  pScope.draw_image("Leaves on top",0,-1000 - animation.wave(1)*200 );
+pScope.draw_image("Leaves on top",0,-1000 - animation.wave(1)*200 );
   pop();
 }
 
@@ -167,6 +170,57 @@ function codeBear2(x, y, animation, pScope){
  // pScope.draw_image("bear",x,y);
 pop();
 }
+
+function codeBear3(x, y, animation, pScope){
+  push();
+  translate(60, -500);
+  rotate(15);
+  scale(0.5);
+  translate(-100, -600+ animation.wave(2)*100);
+  fill('brown')
+  stroke('black')
+  ellipse(65,60,70,70)//left ear
+  ellipse(140,60,70,70)//right ear
+
+  fill('grey');
+  describe('a white ellipse with white outline') //small eye
+  
+  stroke('black');
+  ellipse (103, 115, 130, 130)//face 
+  
+  fill('black')
+  stroke('black')
+  ellipse(83,100,30,30)//big left eye
+  ellipse(120,100,30,30)//big right eye
+
+  fill('white')
+  ellipse(75,95,10,10)//small left eye
+  ellipse(112,95,10,10)//small right eye
+
+  fill('black')
+  stroke('black')
+  ellipse (101,135,40,35) //mouth
+
+  stroke('grey')
+  stroke('grey')
+  fill('pink')
+
+  ellipse(142,140,20,20)
+  stroke('yellow')
+  stroke('grey')
+  fill('pink')
+
+  stroke('pink')
+  ellipse(61,140,20,20)
+
+ // pScope.draw_image("bear",x,y);
+pop();
+}
+
+
+
+
+
 
 
 function bearPng(x, y, animation, pScope){
