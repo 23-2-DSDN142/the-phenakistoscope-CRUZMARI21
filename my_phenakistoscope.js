@@ -1,5 +1,5 @@
 function setup_pScope(pScope) {
-  pScope.output_mode(ANIMATED_DISK);
+  pScope.output_mode(OUTPUT_PRINT(A3));
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.draw_slits(false);
