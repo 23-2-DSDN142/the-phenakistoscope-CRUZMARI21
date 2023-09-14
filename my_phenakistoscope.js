@@ -11,6 +11,7 @@ function setup_pScope(pScope){
   pScope.load_image("Leaves on Bottom", "png");
   pScope.load_image("Middle Leaf", "png");
   pScope.load_image("Leaves on the Right", "png");
+  pScope.load_image("Pollen", "png");
 }
 
 function setup_layers(pScope){
@@ -45,6 +46,10 @@ function setup_layers(pScope){
   layer1.mode(RING);
   layer1.set_boundary( 0, 1000 );
  
+  var layer1 = new PLayer(Pollen);
+  layer1.mode(RING);
+  layer1.set_boundary( 0, 1000 );
+ 
 
 
 
@@ -52,8 +57,6 @@ function setup_layers(pScope){
 function bkgr (x, y, animation, pScope){
   pScope.fill_background('#93EED5');
 }
-
-  
 
 function centerLeaf(x, y, animation, pScope){
   push();
@@ -84,6 +87,15 @@ pScope.draw_image("Leaves on the Right",0,-1000 - animation.wave(1)*200 );
   pop();
 }
 
+function Pollen(x, y, animation, pScope){
+  push();
+  translate(0, 300);
+  scale(0.09)
+  pScope.draw_image("Pollen",0,-1200 - animation.wave(2)*300 );
+ 
+pScope.draw_image("Pollen",0,-10000 - animation.wave(0.6)*200 );
+  pop();
+}
 
 
 
@@ -92,10 +104,11 @@ function detail(x, y, animation, pScope){
 push();
 scale(1.005);
 
-rotate(animation.frame)
+
 translate(31.5,405)
   pScope.draw_image("Leaves on top",0,0);
 pop();
+rotate (0.5)
   }
 
 
@@ -197,7 +210,7 @@ function codeBear3(x, y, animation, pScope){
   translate(60, -500);
   rotate(15);
   scale(0.5);
-  translate(-100, -600+ animation.wave(2)*100);
+  translate(-500, -600+ animation.wave(2)*100);
   fill('brown')
   stroke('black')
   ellipse(65,60,70,70)//left ear
