@@ -124,19 +124,19 @@ rotate (0)
 function codeBear(x, y, animation, pScope){
   push()
   translate(-100, -1000+ animation.wave(2)*100);
-  fill('grey')
-  stroke('black')
+  fill('#EBE8ED')
+  noStroke()
   ellipse(65,60,70,70)//left ear
   ellipse(140,60,70,70)//right ear
 
-  fill('grey');
+  fill('#EBE8ED');
   describe('a white ellipse with white outline') //small eye
   
-  stroke('black');
+  stroke('#EBE8ED');
   ellipse (103, 115, 130, 130)//face 
   
   fill('black')
-  stroke('black')
+  stroke('#EBE8ED')
   ellipse(83,100,30,30)//big left eye
   ellipse(120,100,30,30)//big right eye
 
@@ -148,9 +148,9 @@ function codeBear(x, y, animation, pScope){
   stroke('black')
   ellipse (101,135,40,35) //mouth
 
-  stroke('grey')
-  stroke('grey')
-  fill('pink')
+  stroke('#EBE8ED')
+  stroke('#EBE8ED')
+  fill('#EEA0CA')
 
   ellipse(142,140,20,20)
   stroke('yellow')
@@ -170,17 +170,17 @@ function codeBear2(x, y, animation, pScope){
   rotate(30);
   scale(0.5);
   translate(-100, -600+ animation.wave(2)*100);
-  fill('brown')
-  stroke('black')
+  fill('#C7A15B')
+  stroke('#C7A15B')
 
   //codeBear2 drawing
   ellipse(65,60,70,70)//left ear
   ellipse(140,60,70,70)//right ear
 
-  fill('grey');
+  fill('#C7A15B');
   describe('a white ellipse with white outline') //small eye
   
-  stroke('black');
+  stroke('#C7A15B');
   ellipse (103, 115, 130, 130)//face 
   
   fill('black')
