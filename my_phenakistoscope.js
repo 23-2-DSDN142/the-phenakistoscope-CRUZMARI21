@@ -1,7 +1,5 @@
 function setup_pScope(pScope){
- // pScope.output_mode(STATIC_DISK);
- pScope.output_mode(ANIMATED_DISK);
- //pScope.output_mode(ANIMATED_FRAME);
+  pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.draw_slits(false);
@@ -61,10 +59,11 @@ function bkgr (x, y, animation, pScope){
 function centerLeaf(x, y, animation, pScope){
   push();
   scale(0.5);
+
   if(animation.frame < 1/12){
-    pScope.draw_image("Middle Leaf",0,0  );
+    pScope.draw_image("Middle Leaf",100,50  );
   }
-  pop();
+    pop();
 }
 
 function LeavesonTop(x, y, animation, pScope){
@@ -89,12 +88,18 @@ pScope.draw_image("Leaves on the Right",0,-1000 - animation.wave(1)*200 );
 
 function Pollen(x, y, animation, pScope){
   push();
-  translate(0, 300);
-  scale(0.09)
-  pScope.draw_image("Pollen",0,-1200 - animation.wave(2)*300 );
- 
+  translate (0, -5)
+  scale(0.06)
+
+
+
+ pScope.draw_image("Pollen",0,-1200 - animation.wave(2)*200 );
+  push()
+  translate (0, -10)
+  pop()
 pScope.draw_image("Pollen",0,-10000 - animation.wave(0.6)*200 );
-  pop();
+pop()
+  
 }
 
 
@@ -108,7 +113,7 @@ scale(1.005);
 translate(31.5,405)
   pScope.draw_image("Leaves on top",0,0);
 pop();
-rotate (0.5)
+rotate (0)
   }
 
 
@@ -167,6 +172,8 @@ function codeBear2(x, y, animation, pScope){
   translate(-100, -600+ animation.wave(2)*100);
   fill('brown')
   stroke('black')
+
+  //codeBear2 drawing
   ellipse(65,60,70,70)//left ear
   ellipse(140,60,70,70)//right ear
 
@@ -207,19 +214,21 @@ pop();
 
 function codeBear3(x, y, animation, pScope){
   push();
-  translate(60, -500);
+  translate(60, -100);
   rotate(15);
   scale(0.5);
-  translate(-500, -600+ animation.wave(2)*100);
-  fill('brown')
-  stroke('black')
+  translate(-500, -600+ animation.wave(0.06)*10);
+  fill('#C69A95')
+  noStroke()
+
+  //codeBear3 drawing
   ellipse(65,60,70,70)//left ear
   ellipse(140,60,70,70)//right ear
 
-  fill('grey');
+  fill('#C69A95');
   describe('a white ellipse with white outline') //small eye
   
-  stroke('black');
+  noStroke()
   ellipse (103, 115, 130, 130)//face 
   
   fill('black')
